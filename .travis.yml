@@ -1,7 +1,11 @@
 language: python
 python:
-  - "3.6.5"
+- 3.6.5
 install:
-  - pip3 install -r requirements.txt
+- pip3 install -r requirements.txt
 script:
-  - python3 lifepet/manage.py test
+- python3 lifepet/manage.py test
+before_install:
+- openssl aes-256-cbc -K $encrypted_e54fe47961f4_key -iv $encrypted_e54fe47961f4_iv
+  -in secrets.tar.enc -out secrets.tar -d
+- tar xvf secrets.tar

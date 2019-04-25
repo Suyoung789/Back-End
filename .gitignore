@@ -468,5 +468,6 @@ pyvenv.cfg
 pip-selfcheck.json
 
 /.secrets
+secrets.tar
 
 # End of https://www.gitignore.io/api/macos,django,python,pycharm,jetbrains,virtualenv,pycharm+all,pycharm+iml
