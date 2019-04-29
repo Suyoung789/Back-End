@@ -44,10 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'app',
-    'rest_framework_jwt'
+    'rest_framework_jwt',
+    'drf_yasg',
 ]
 
-REST_FRAMWORK = {
+REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
