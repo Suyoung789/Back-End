@@ -1,14 +1,17 @@
 from rest_framework import serializers
+
 from . import models
 
 
 class AdoptionListSerializers(serializers.ModelSerializer):
-    author = serializers.ReadOnlyField(source='user.username')
+    author = serializers.PrimaryKeyRelatedField(
+        read_only=True,
+    )
     image = serializers.ImageField(use_url=True)
 
     class Meta:
         model = models.Adoption
-        fields = '__all__'
+        fields = ('title', 'content', 'creation_date', 'post_id',  'author', 'image', 'sex')
 
 
 class AdoptionRetrieveSerializer(serializers.ModelSerializer):
@@ -18,7 +21,9 @@ class AdoptionRetrieveSerializer(serializers.ModelSerializer):
 
 
 class CareListSerializer(serializers.ModelSerializer):
-    author = serializers.ReadOnlyField(source='user.username')
+    author = serializers.PrimaryKeyRelatedField(
+        read_only=True,
+    )
     image = serializers.ImageField(use_url=True)
 
     class Meta:
@@ -33,7 +38,9 @@ class CareRetrieveSerializer(serializers.ModelSerializer):
 
 
 class MoveListSerializer(serializers.ModelSerializer):
-    author = serializers.ReadOnlyField(source='user.username')
+    author = serializers.PrimaryKeyRelatedField(
+        read_only=True,
+    )
     image = serializers.ImageField(use_url=True)
 
     class Meta:
@@ -48,7 +55,9 @@ class MoveRetrieveSerializers(serializers.ModelSerializer):
 
 
 class ReportListSerializer(serializers.ModelSerializer):
-    author = serializers.ReadOnlyField(source='user.username')
+    author = serializers.PrimaryKeyRelatedField(
+        read_only=True,
+    )
     image = serializers.ImageField(use_url=True)
 
     class Meta:
@@ -63,7 +72,9 @@ class ReportRetrieveSerializers(serializers.ModelSerializer):
 
 
 class FindListSerializer(serializers.ModelSerializer):
-    author = serializers.ReadOnlyField(source='user.username')
+    author = serializers.PrimaryKeyRelatedField(
+        read_only=True,
+    )
     image = serializers.ImageField(use_url=True)
 
     class Meta:
@@ -78,7 +89,9 @@ class FindRetrieveSerializers(serializers.ModelSerializer):
 
 
 class CommunityListSerializer(serializers.ModelSerializer):
-    author = serializers.ReadOnlyField(source='user.username')
+    author = serializers.PrimaryKeyRelatedField(
+        read_only=True,
+    )
     image = serializers.ImageField(use_url=True)
 
     class Meta:

@@ -1,6 +1,6 @@
+from rest_framework.response import Response
 from rest_framework import viewsets
-from rest_framework.decorators import permission_classes
-from rest_framework.permissions import IsAuthenticated
+
 from . import models
 from . import serializers
 
@@ -8,9 +8,15 @@ from . import serializers
 class AdoptionListView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.AdoptionListSerializers
     queryset = models.Adoption.objects.all()
+    model: models.Adoption = models.Adoption
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = serializers.AdoptionListSerializers(queryset, many=True)
+        return Response(serializer.data)
 
 
 class AdoptionRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
