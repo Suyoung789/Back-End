@@ -11,6 +11,9 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, to_field='username')
     image = models.ImageField(default='media/test.png', null=True, blank=True)
 
+    class Meta:
+        abstract = True
+
 
 class Adoption(Post):
     sex = models.CharField(max_length=2)
