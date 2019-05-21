@@ -24,6 +24,7 @@ class Care(Post):
     sex = models.CharField(max_length=2)
 
 
+
 class Move(Post):
     current_location = models.CharField(max_length=40)
     destination_location = models.CharField(max_length=40)
