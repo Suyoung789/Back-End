@@ -8,7 +8,7 @@ from . import serializers
 
 @permission_classes((AllowAny, ))
 class UserView(viewsets.generics.CreateAPIView):
-    serializer_class = serializers.UserSerializers
+    serializer_class = serializers.UserSerializer
     model = get_user_model()
 
 

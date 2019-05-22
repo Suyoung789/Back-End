@@ -2,7 +2,7 @@ from rest_framework import serializers
 from . import models
 
 
-class CommentAdoptionSerializers(serializers.ModelSerializer):
+class CommentAdoptionSerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(
         read_only=True
     )
@@ -15,7 +15,7 @@ class CommentAdoptionSerializers(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CommentCareSerializers(serializers.ModelSerializer):
+class CommentCareSerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(
         read_only=True
     )
@@ -28,7 +28,7 @@ class CommentCareSerializers(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CommentMoveSerializers(serializers.ModelSerializer):
+class CommentMoveSerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(
         read_only=True
     )
@@ -41,7 +41,7 @@ class CommentMoveSerializers(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CommentFindSerializers(serializers.ModelSerializer):
+class CommentFindSerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(
         read_only=True
     )
@@ -54,7 +54,7 @@ class CommentFindSerializers(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CommentReportSerializers(serializers.ModelSerializer):
+class CommentReportSerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(
         read_only=True
     )
@@ -67,7 +67,7 @@ class CommentReportSerializers(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CommentCommunitySerializers(serializers.ModelSerializer):
+class CommentCommunitySerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(
         read_only=True
     )

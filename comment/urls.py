@@ -2,10 +2,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('adoption/<pk>', views.CommentAdoptionListView.as_view()),
-    path('care/<pk>', views.CommentCareListView.as_view()),
-    path('move/<pk>', views.CommentMoveListView.as_view()),
-    path('find/<pk>', views.CommentFindListView.as_view()),
-    path('report/<pk>', views.CommentReportListView.as_view()),
-    path('community/<pk>', views.CommentCommunityListView.as_view())
+    path('adoption/<post_id>', views.CommentAdoptionListView.as_view()),
+    path('care/<post_id>', views.CommentCareListView.as_view()),
+    path('move/<post_id>', views.CommentMoveListView.as_view()),
+    path('find/<post_id>', views.CommentFindListView.as_view()),
+    path('report/<post_id>', views.CommentReportListView.as_view()),
+    path('community/<post_id>', views.CommentCommunityListView.as_view())
 ]

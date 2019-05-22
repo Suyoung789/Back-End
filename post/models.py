@@ -24,7 +24,6 @@ class Care(Post):
     sex = models.CharField(max_length=2)
 
 
-
 class Move(Post):
     current_location = models.CharField(max_length=40)
     destination_location = models.CharField(max_length=40)
@@ -38,6 +37,7 @@ class Report(Post):
 class Find(Post):
     sex = models.CharField(max_length=2)
     pet_name = models.CharField(max_length=20)
+    type = models.TextField()
 
 
 class Community(Post):

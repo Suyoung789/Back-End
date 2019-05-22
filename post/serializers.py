@@ -3,7 +3,7 @@ from rest_framework import serializers
 from . import models
 
 
-class AdoptionListSerializers(serializers.ModelSerializer):
+class AdoptionListSerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(
         read_only=True,
     )
@@ -48,7 +48,7 @@ class MoveListSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class MoveRetrieveSerializers(serializers.ModelSerializer):
+class MoveRetrieveSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Move
         fields = '__all__'
@@ -65,7 +65,7 @@ class ReportListSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ReportRetrieveSerializers(serializers.ModelSerializer):
+class ReportRetrieveSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Report
         fields = '__all__'
@@ -82,7 +82,7 @@ class FindListSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class FindRetrieveSerializers(serializers.ModelSerializer):
+class FindRetrieveSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Find
         fields = '__all__'
@@ -99,7 +99,7 @@ class CommunityListSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CommunityRetrieveSerializers(serializers.ModelSerializer):
+class CommunityRetrieveSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Community
         fields = '__all__'

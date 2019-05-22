@@ -6,11 +6,11 @@ from post.models import Adoption, Care, Move, Find, Report, Community
 
 
 class CommentAdoptionListView(viewsets.generics.ListCreateAPIView):
-    serializer_class = serializers.CommentAdoptionSerializers
+    serializer_class = serializers.CommentAdoptionSerializer
     queryset = models.AdoptionComment.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user, post=Adoption.objects.get(post_id=self.kwargs['pk']))
+        serializer.save(author=self.request.user, post=Adoption.objects.get(post_id=self.kwargs['post_id']))
 
     def get_queryset(self):
         pk = self.kwargs['pk']
@@ -18,11 +18,11 @@ class CommentAdoptionListView(viewsets.generics.ListCreateAPIView):
 
 
 class CommentCareListView(viewsets.generics.ListCreateAPIView):
-    serializer_class = serializers.CommentCareSerializers
+    serializer_class = serializers.CommentCareSerializer
     queryset = models.CareComment.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user, post=Care.objects.get(post_id=self.kwargs['pk']))
+        serializer.save(author=self.request.user, post=Care.objects.get(post_id=self.kwargs['post_id']))
 
     def get_queryset(self):
         pk = self.kwargs['pk']
@@ -30,11 +30,11 @@ class CommentCareListView(viewsets.generics.ListCreateAPIView):
 
 
 class CommentMoveListView(viewsets.generics.ListCreateAPIView):
-    serializer_class = serializers.CommentMoveSerializers
+    serializer_class = serializers.CommentMoveSerializer
     queryset = models.AdoptionComment.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user, post=Move.objects.get(post_id=self.kwargs['pk']))
+        serializer.save(author=self.request.user, post=Move.objects.get(post_id=self.kwargs['post_id']))
 
     def get_queryset(self):
         pk = self.kwargs['pk']
@@ -42,7 +42,7 @@ class CommentMoveListView(viewsets.generics.ListCreateAPIView):
 
 
 class CommentFindListView(viewsets.generics.ListCreateAPIView):
-    serializer_class = serializers.CommentFindSerializers
+    serializer_class = serializers.CommentFindSerializer
     queryset = models.FindComment.objects.all()
 
     def perform_create(self, serializer):
@@ -54,7 +54,7 @@ class CommentFindListView(viewsets.generics.ListCreateAPIView):
 
 
 class CommentReportListView(viewsets.generics.ListCreateAPIView):
-    serializer_class = serializers.CommentReportSerializers
+    serializer_class = serializers.CommentReportSerializer
     queryset = models.AdoptionComment.objects.all()
 
     def perform_create(self, serializer):
@@ -66,7 +66,7 @@ class CommentReportListView(viewsets.generics.ListCreateAPIView):
 
 
 class CommentCommunityListView(viewsets.generics.ListCreateAPIView):
-    serializer_class = serializers.CommentCommunitySerializers
+    serializer_class = serializers.CommentCommunitySerializer
     queryset = models.AdoptionComment.objects.all()
 
     def perform_create(self, serializer):

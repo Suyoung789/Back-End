@@ -2,7 +2,7 @@ from rest_framework import serializers
 from . import models
 
 
-class ApplyAdoptionSerializers(serializers.ModelSerializer):
+class ApplyAdoptionSerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(
         read_only=True
     )
@@ -15,7 +15,13 @@ class ApplyAdoptionSerializers(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ApplyCareSerializers(serializers.ModelSerializer):
+class ApplyAdoptionRetrieveSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ApplyAdoption
+        fields = '__all__'
+
+
+class ApplyCareSerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(
         read_only=True
     )
@@ -28,7 +34,13 @@ class ApplyCareSerializers(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ApplyMoveSerializers(serializers.ModelSerializer):
+class ApplyCareRetrieveSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ApplyCare
+        fields = '__all__'
+
+
+class ApplyMoveSerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(
         read_only=True
     )
@@ -36,6 +48,12 @@ class ApplyMoveSerializers(serializers.ModelSerializer):
         read_only=True
     )
 
+    class Meta:
+        model = models.ApplyMove
+        fields = '__all__'
+
+
+class ApplyMoveRetrieveSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ApplyMove
         fields = '__all__'

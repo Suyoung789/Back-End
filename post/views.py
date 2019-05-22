@@ -6,7 +6,7 @@ from . import serializers
 
 
 class AdoptionListView(viewsets.generics.ListCreateAPIView):
-    serializer_class = serializers.AdoptionListSerializers
+    serializer_class = serializers.AdoptionListSerializer
     queryset = models.Adoption.objects.all()
     model: models.Adoption = models.Adoption
 
@@ -15,7 +15,7 @@ class AdoptionListView(viewsets.generics.ListCreateAPIView):
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
-        serializer = serializers.AdoptionListSerializers(queryset, many=True)
+        serializer = serializers.AdoptionListSerializer(queryset, many=True)
         return Response(serializer.data)
 
 
@@ -59,7 +59,7 @@ class ReportListView(viewsets.generics.ListCreateAPIView):
 
 
 class ReportRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
-    serializer_class = serializers.ReportRetrieveSerializers
+    serializer_class = serializers.ReportRetrieveSerializer
     queryset = models.Report.objects.all()
 
 
@@ -72,7 +72,7 @@ class FindListView(viewsets.generics.ListCreateAPIView):
 
 
 class FindRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
-    serializer_class = serializers.FindRetrieveSerializers
+    serializer_class = serializers.FindRetrieveSerializer
     queryset = models.Find.objects.all()
 
 
@@ -85,6 +85,6 @@ class CommunityListView(viewsets.generics.ListCreateAPIView):
 
 
 class CommunityRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
-    serializer_class = serializers.CommunityRetrieveSerializers
+    serializer_class = serializers.CommunityRetrieveSerializer
     queryset = models.Community.objects.all()
 

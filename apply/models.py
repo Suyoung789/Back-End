@@ -9,7 +9,7 @@ class Apply(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.TextField(blank=True)
     kakao_id = models.CharField(max_length=40, blank=True, null=True)
-    phone = models.IntegerField(blank=True, null=True)
+    phone = models.CharField(blank=True, null=True, max_length=40)
 
     class Meta:
         abstract = True
