@@ -13,7 +13,7 @@ class CommentAdoptionListView(viewsets.generics.ListCreateAPIView):
         serializer.save(author=self.request.user, post=Adoption.objects.get(post_id=self.kwargs['post_id']))
 
     def get_queryset(self):
-        pk = self.kwargs['pk']
+        pk = self.kwargs['post_id']
         return models.AdoptionComment.objects.filter(post=pk)
 
 
@@ -25,7 +25,7 @@ class CommentCareListView(viewsets.generics.ListCreateAPIView):
         serializer.save(author=self.request.user, post=Care.objects.get(post_id=self.kwargs['post_id']))
 
     def get_queryset(self):
-        pk = self.kwargs['pk']
+        pk = self.kwargs['post_id']
         return models.CareComment.objects.filter(post=pk)
 
 
@@ -37,7 +37,7 @@ class CommentMoveListView(viewsets.generics.ListCreateAPIView):
         serializer.save(author=self.request.user, post=Move.objects.get(post_id=self.kwargs['post_id']))
 
     def get_queryset(self):
-        pk = self.kwargs['pk']
+        pk = self.kwargs['post_id']
         return models.MoveComment.objects.filter(post=pk)
 
 
@@ -46,10 +46,10 @@ class CommentFindListView(viewsets.generics.ListCreateAPIView):
     queryset = models.FindComment.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user, post=Find.objects.get(post_id=self.kwargs['pk']))
+        serializer.save(author=self.request.user, post=Find.objects.get(post_id=self.kwargs['post_id']))
 
     def get_queryset(self):
-        pk = self.kwargs['pk']
+        pk = self.kwargs['post_id']
         return models.FindComment.objects.filter(post=pk)
 
 
@@ -58,10 +58,10 @@ class CommentReportListView(viewsets.generics.ListCreateAPIView):
     queryset = models.AdoptionComment.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user, post=Report.objects.get(post_id=self.kwargs['pk']))
+        serializer.save(author=self.request.user, post=Report.objects.get(post_id=self.kwargs['post_id']))
 
     def get_queryset(self):
-        pk = self.kwargs['pk']
+        pk = self.kwargs['post_id']
         return models.ReportComment.objects.filter(post=pk)
 
 
@@ -70,8 +70,8 @@ class CommentCommunityListView(viewsets.generics.ListCreateAPIView):
     queryset = models.AdoptionComment.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user, post=Community.objects.get(post_id=self.kwargs['pk']))
+        serializer.save(author=self.request.user, post=Community.objects.get(post_id=self.kwargs['post_id']))
 
     def get_queryset(self):
-        pk = self.kwargs['pk']
+        pk = self.kwargs['post_id']
         return models.CommunityComment.objects.filter(post=pk)
