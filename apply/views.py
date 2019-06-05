@@ -1,3 +1,4 @@
+
 from rest_framework import viewsets
 
 from . import models
@@ -5,7 +6,12 @@ from . import serializers
 from post.models import Adoption, Care, Move
 
 
-class ApplyAdoptionListView(viewsets.generics.ListCreateAPIView):
+class ApplyAdoptionListView(viewsets.generics.ListAPIView):
+    serializer_class = serializers.ApplyAdoptionSerializer
+    queryset = models.ApplyAdoption.objects.all()
+
+
+class ApplyAdoptionCreateView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.ApplyAdoptionSerializer
     queryset = models.ApplyAdoption.objects.all()
 
@@ -18,7 +24,12 @@ class ApplyAdoptionRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
     queryset = models.ApplyAdoption.objects.all()
 
 
-class ApplyMoveListView(viewsets.generics.ListCreateAPIView):
+class ApplyCareListView(viewsets.generics.ListAPIView):
+    serializer_class = serializers.ApplyCareSerializer
+    queryset = models.ApplyCare.objects.all()
+
+
+class ApplyMoveCreateView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.ApplyMoveSerializer
     queryset = models.ApplyMove.objects.all()
 
@@ -31,7 +42,12 @@ class ApplyCareRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
     queryset = models.ApplyCare.objects.all()
 
 
-class ApplyCareListView(viewsets.generics.ListCreateAPIView):
+class ApplyMoveListView(viewsets.generics.ListAPIView):
+    serializer_class = serializers.ApplyMoveSerializer
+    queryset = models.ApplyMove.objects.all()
+
+
+class ApplyCareCreateView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.ApplyCareSerializer
     queryset = models.ApplyCare.objects.all()
 
@@ -42,3 +58,4 @@ class ApplyCareListView(viewsets.generics.ListCreateAPIView):
 class ApplyMoveRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
     serializer_class = serializers.ApplyMoveRetrieveSerializer
     queryset = models.ApplyMove.objects.all()
+

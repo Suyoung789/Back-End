@@ -7,6 +7,7 @@ class Comment(models.Model):
     comment_id = models.AutoField(primary_key=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, to_field='username')
     content = models.TextField()
+    creation_date = models.DateField(auto_now=True)
 
     class Meta:
         abstract = True
@@ -34,4 +35,3 @@ class FindComment(Comment):
 
 class CommunityComment(Comment):
     post = models.ForeignKey(model.Community, on_delete=models.CASCADE, to_field='post_id')
-

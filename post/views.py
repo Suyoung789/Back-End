@@ -8,15 +8,9 @@ from . import serializers
 class AdoptionListView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.AdoptionListSerializer
     queryset = models.Adoption.objects.all()
-    model: models.Adoption = models.Adoption
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
-
-    def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
-        serializer = serializers.AdoptionListSerializer(queryset, many=True)
-        return Response(serializer.data)
 
 
 class AdoptionRetrieveView(viewsets.generics.RetrieveDestroyAPIView):

@@ -28,7 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '54.180.159.21'
+    '54.180.159.21',
+    'ip-172-31-25-74.ap-northeast-2.compute.internal'
 ]
 
 

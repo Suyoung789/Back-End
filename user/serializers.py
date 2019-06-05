@@ -21,7 +21,7 @@ class UserSerializer(serializers.ModelSerializer):
 class AdminUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.User
-        fields = ('username', 'name', 'password', 'pet', 'isAdmin ')
+        fields = '__all__'
 
     def create(self, validated_data):
         user = models.User(

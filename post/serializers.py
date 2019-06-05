@@ -11,7 +11,7 @@ class AdoptionListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Adoption
-        fields = ('title', 'content', 'creation_date', 'post_id',  'author', 'image', 'sex')
+        fields = '__all__'
 
 
 class AdoptionRetrieveSerializer(serializers.ModelSerializer):

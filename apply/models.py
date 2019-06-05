@@ -29,3 +29,4 @@ class ApplyCare(Apply):
 class ApplyMove(Apply):
     post = models.ForeignKey(Move, on_delete=models.CASCADE, to_field='post_id')
     possible_time = models.IntegerField()
+    possible_date = models.TextField(default=0)
