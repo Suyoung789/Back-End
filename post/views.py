@@ -7,7 +7,7 @@ from . import serializers
 
 class AdoptionListView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.AdoptionListSerializer
-    queryset = models.Adoption.objects.all()
+    queryset = models.Adoption.objects.all().order_by('-post_id')
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -20,7 +20,7 @@ class AdoptionRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
 
 class CareListView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.CareListSerializer
-    queryset = models.Care.objects.all()
+    queryset = models.Care.objects.all().order_by('-post_id')
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -33,7 +33,7 @@ class CareRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
 
 class MoveListView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.MoveListSerializer
-    queryset = models.Move.objects.all()
+    queryset = models.Move.objects.all().order_by('-post_id')
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -46,7 +46,7 @@ class MoveRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
 
 class ReportListView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.ReportListSerializer
-    queryset = models.Report.objects.all()
+    queryset = models.Report.objects.all().order_by('-post_id')
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -59,7 +59,7 @@ class ReportRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
 
 class FindListView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.FindListSerializer
-    queryset = models.Find.objects.all()
+    queryset = models.Find.objects.all().order_by('-post_id')
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -72,7 +72,7 @@ class FindRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
 
 class CommunityListView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.CommunityListSerializer
-    queryset = models.Community.objects.all()
+    queryset = models.Community.objects.all().order_by('-post_id')
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
