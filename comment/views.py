@@ -14,7 +14,7 @@ class CommentAdoptionListView(viewsets.generics.ListCreateAPIView):
 
     def get_queryset(self):
         pk = self.kwargs['post_id']
-        return models.AdoptionComment.objects.filter(post=pk)
+        return models.AdoptionComment.objects.filter(post=pk).order_by('-comment_id')
 
 
 class CommentCareListView(viewsets.generics.ListCreateAPIView):
@@ -26,7 +26,7 @@ class CommentCareListView(viewsets.generics.ListCreateAPIView):
 
     def get_queryset(self):
         pk = self.kwargs['post_id']
-        return models.CareComment.objects.filter(post=pk)
+        return models.CareComment.objects.filter(post=pk).order_by('-comment_id')
 
 
 class CommentMoveListView(viewsets.generics.ListCreateAPIView):
@@ -38,7 +38,7 @@ class CommentMoveListView(viewsets.generics.ListCreateAPIView):
 
     def get_queryset(self):
         pk = self.kwargs['post_id']
-        return models.MoveComment.objects.filter(post=pk)
+        return models.MoveComment.objects.filter(post=pk).order_by('-comment_id')
 
 
 class CommentFindListView(viewsets.generics.ListCreateAPIView):
@@ -50,7 +50,7 @@ class CommentFindListView(viewsets.generics.ListCreateAPIView):
 
     def get_queryset(self):
         pk = self.kwargs['post_id']
-        return models.FindComment.objects.filter(post=pk)
+        return models.FindComment.objects.filter(post=pk).order_by('-comment_id')
 
 
 class CommentReportListView(viewsets.generics.ListCreateAPIView):
@@ -62,7 +62,7 @@ class CommentReportListView(viewsets.generics.ListCreateAPIView):
 
     def get_queryset(self):
         pk = self.kwargs['post_id']
-        return models.ReportComment.objects.filter(post=pk)
+        return models.ReportComment.objects.filter(post=pk).order_by('-comment_id')
 
 
 class CommentCommunityListView(viewsets.generics.ListCreateAPIView):
@@ -74,4 +74,4 @@ class CommentCommunityListView(viewsets.generics.ListCreateAPIView):
 
     def get_queryset(self):
         pk = self.kwargs['post_id']
-        return models.CommunityComment.objects.filter(post=pk)
+        return models.CommunityComment.objects.filter(post=pk).order_by('-comment_id')
