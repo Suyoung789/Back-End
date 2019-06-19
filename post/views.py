@@ -1,5 +1,4 @@
-from rest_framework.response import Response
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 
 from . import models
 from . import serializers
@@ -8,6 +7,8 @@ from . import serializers
 class AdoptionListView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.AdoptionListSerializer
     queryset = models.Adoption.objects.all().order_by('-post_id')
+    filter_backends = (filters.SearchFilter, )
+    search_fields = ('kind', 'title')
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -19,7 +20,7 @@ class AdoptionRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
 
 
 class CareListView(viewsets.generics.ListCreateAPIView):
-    serializer_class = serializers.CareListSerializer
+    serializer_class = serializers.CommunityListSerializer
     queryset = models.Care.objects.all().order_by('-post_id')
 
     def perform_create(self, serializer):
@@ -73,6 +74,8 @@ class FindRetrieveView(viewsets.generics.RetrieveDestroyAPIView):
 class CommunityListView(viewsets.generics.ListCreateAPIView):
     serializer_class = serializers.CommunityListSerializer
     queryset = models.Community.objects.all().order_by('-post_id')
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('content', 'title')
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
