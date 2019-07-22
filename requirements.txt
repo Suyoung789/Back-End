@@ -6,13 +6,16 @@ Django==2.2.1
 djangorestframework==3.9.3
 djangorestframework-jwt==1.11.0
 drf-yasg==1.15.0
+ez-setup==0.9
 idna==2.8
 inflection==0.3.1
 itypes==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
+mysqlclient==1.4.2.post1
 Pillow==6.0.0
 PyJWT==1.7.1
+PyMySQL==0.9.3
 pytz==2019.1
 requests==2.21.0
 ruamel.yaml==0.15.94
